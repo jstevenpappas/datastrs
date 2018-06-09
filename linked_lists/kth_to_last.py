@@ -24,10 +24,11 @@ def find_kth_to_last(head, kth):
 
     idx = find_kth_to_last(head.next, kth) + 1
 
+    print(idx)
+
     if idx == kth:
         print('found kth from last val: {val}'.format(val=head.data))
     return idx
-
 
 
 
@@ -43,8 +44,8 @@ for i in range(0, 10):
 
     llist.append(i)
 
-llist.iterate()
+#llist.iterate()
 
-find_kth_to_last(llist.get_head(), 2)
+print(find_kth_to_last(llist.get_head(), 2))
 
 print('hi ')
