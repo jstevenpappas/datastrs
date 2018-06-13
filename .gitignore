@@ -45,3 +45,7 @@ tmp*
 .cache
 nosetests.xml
 coverage.xml
+
+
+# personal directory not for inclusion in source control
+pers_misc/
