@@ -138,14 +138,12 @@ class UniqString(object):
 
 
 
-
-
-
 def main():
 
     test_str_not_uniq = 'pappas'
     test_str_uniq = 'bacdef'
     us = UniqString()
+
 
     print("String is {nustr} - contains uniq chars? {val}".format(nustr=test_str_not_uniq,
                                                                   val=us.is_str_uniq(test_str_not_uniq)))
@@ -178,8 +176,6 @@ def main():
     print('is {num} even?: {val}'.format(num=num_even, val=us.is_even_wout_division(num_even)))
 
     print('is {num} even?: {val}'.format(num=num_odd, val=us.is_even_wout_division(num_odd)))
-
-
 
 
 
