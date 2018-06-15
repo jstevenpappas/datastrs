@@ -49,3 +49,8 @@ coverage.xml
 
 # personal directory not for inclusion in source control
 pers_misc/
+
+
+# not including Elements of Programming in Interviews: Python until
+#   I get a bit headway in reading through it
+elemsofprgmgintvws/
