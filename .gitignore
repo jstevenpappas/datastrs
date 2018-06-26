@@ -50,6 +50,9 @@ coverage.xml
 # personal directory not for inclusion in source control
 pers_misc/
 
+# exclude misc dir too
+misc/
+
 
 # not including Elements of Programming in Interviews: Python until
 #   I get a bit headway in reading through it
