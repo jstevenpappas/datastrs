@@ -21,6 +21,7 @@ def selection_sort(arr):
                 #                                                                 curr_pos_max=location))
                 position_max = location
 
+        #arr[fill_slot], arr[position_max] = arr[position_max], arr[fill_slot]
         arr[fill_slot], arr[position_max] = arr[position_max], arr[fill_slot]
 
     return arr
@@ -33,18 +34,21 @@ def selection_sort(arr):
 
 test_arr_rev = [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
 
-#print('arr = ', test_arr_rev)
-#print(selection_sort(test_arr_rev))
+print('arr = ', test_arr_rev)
+print(selection_sort(test_arr_rev))
 
 print('')
 
-test_arr_sorted = [1, 2, 3, 4, 5, 6, 7, 8]
+#test_arr_sorted = [1, 2, 3, 4, 5, 6, 7, 8]
+test_arr_sorted = [5, 6, 7, 8, 1, 2, 3, 4]
 
 #print('arr = ', test_arr_sorted)
 #print(test_arr_sorted)
 
 
-tst_arr = [4, 3, 2, 1]
+#tst_arr = [4, 3, 2, 1]
+
+tst_arr = [2, 1, 4, 3]
 
 print('arr = ', tst_arr)
 print(selection_sort(tst_arr))

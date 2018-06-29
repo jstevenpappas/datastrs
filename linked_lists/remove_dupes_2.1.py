@@ -1,14 +1,12 @@
-"""
+"""Remove Dupes.
 
-    Remove Dupes:
+Write code to remove duplicates from an unsorted LinkedList
+Additional ques: how to solve if temp buffer is not allowed?
 
-        Write code to remove duplicates from an unsorted LinkedList
-        Additional ques: how to solve if temp buffer is not allowed?
-
-        Hints:
-            1) try a HashTable?  You can do this in a single pass of the LinkedList
-            2) w/out extra space you'll need O(N^2) time.
-                Try using 2 ptrs where the 2nd searches ahead of the first
+Hints:
+1) try a HashTable?  You can do this in a single pass of the LinkedList
+2) w/out extra space you'll need O(N^2) time.
+Try using 2 ptrs where the 2nd searches ahead of the first
 
 """
 class Node(object):

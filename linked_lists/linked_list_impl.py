@@ -1,4 +1,4 @@
-
+"""Linked List implementation."""
 
 class Node(object):
 
@@ -26,8 +26,8 @@ class LinkedList(object):
             self.tail = new_node
             self.head = self.tail
         else:
-            self.tail.next = new_node
-            self.tail = new_node
+            self.tail.next = new_node # add to node to chain
+            self.tail = new_node      # set new value for tail
 
 
     def iterate(self):
@@ -51,3 +51,20 @@ class LinkedList(object):
                 n.next = n.next.next
                 return self.head
             n = n.next
+
+
+
+    def get_node(self, data):
+        print('entry')
+
+        if self.head.data == data:
+            return self.head
+
+        n = self.head
+        while n.next is not None:
+            if n.next.data == data:
+                print('llooking for node')
+                return n.next
+            n = n.next
+
+        return None
