@@ -21,10 +21,28 @@ queue = deque()
 
 
 for i in range(0, 10):
+    #print(i)
     queue.append(i)
 
+#print(len(queue))
 
 
-print(queue.popleft()) # returns first one added to queue (e.g., 0)
-print(queue.popleft()) # returns second one added with is now at top of queue (e.g., 1)
+for i in range(0, len(queue)):
+    print(queue.pop())
+    #print(queue.popleft())
 
+
+#print(queue.popleft()) # returns first one added to queue (e.g., 0)
+#print(queue.popleft()) # returns second one added with is now at top of queue (e.g., 1)
+
+
+
+
+d = dict()
+
+for i in range(0, 10):
+    d[str(i)] = i
+
+
+for k, v in d.items():
+    print('key = {k}, v = {v}'.format(k=k, v=v))

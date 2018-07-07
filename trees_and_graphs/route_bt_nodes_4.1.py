@@ -17,17 +17,34 @@ class State(Enum):
 
 
 class Node(object):
-
     def __init__(self, name=None):
         self.adjaceny = None # directed graph so points to 1 node/vertice
-        self.state = None #State.Unvisited
+        self.state = State.Unvisited
         self.name = name
 
 
 class Graph(object):
-
     def __init__(self):
         self.adjacents = [] # Nodes representing vertices
+
+
+def dfs_search(graph, start, end):
+
+    print('evaluating following node: {n}'.format(n=start.name))
+    print('does {s} == {e}... '.format(s=start.name, e=end.name))
+
+    if start == end:
+        print('start and end nodes the same:  {s} == {e}... '.format(s=start.name, e=end.name))
+        return True
+    else:
+        start.state = State.Visited
+
+    node_adj = start.adjaceny
+
+    if node_adj is not None and node_adj.state == State.Unvisited:
+        return dfs_search(graph, node_adj, end)
+    else:
+        return False
 
 
 def bfs_search(graph, start, end):
@@ -36,7 +53,7 @@ def bfs_search(graph, start, end):
         return True
 
     for n in graph.adjacents:
-        print('setting following node to unvisited: {nme}'.format(nme=n.name))
+        # print('setting following node to unvisited: {nme}'.format(nme=n.name))
         n.state = State.Unvisited
 
     q = MyQueue()
@@ -50,7 +67,10 @@ def bfs_search(graph, start, end):
         if node is not None:
             node_adj = node.adjaceny
 
+
             if node_adj.state == State.Unvisited:
+
+                print('evaluating following node: {n}'.format(n=node_adj.name))
 
                 if node_adj == end:
                     return True
@@ -95,12 +115,17 @@ g.adjacents.append(n2)
 g.adjacents.append(n3)
 g.adjacents.append(n4)
 
-'''
-print('existing paths: ')
-for i in range(len(g.adjacents)):
-    print('path exists between: {s} and {e}'.format(s=g.adjacents[i].name, e=g.adjacents[i].adjaceny.name))
-'''
 
 start = n0
-end = n4
-print('is there a path between {start} and {end}: {val}'.format(start=start.name, end=end.name, val=bfs_search(g, start, end)))
+end = n3
+print('BFS: is there a path between {start} and {end}: {val}\n'.format(start=start.name, end=end.name, val=bfs_search(g, start, end)))
+
+
+for node in g.adjacents:
+    print('resetting state of nodes between tests: node={nme} before_state={bst} after_state={ast}'.format(nme=node.name, bst=node.state, ast=State.Unvisited))
+    node.state = State.Unvisited
+
+
+start = n0
+end = n3
+print('DFS: is there a path between {start} and {end}: {val}\n'.format(start=start.name, end=end.name, val=dfs_search(g, start, end)))
