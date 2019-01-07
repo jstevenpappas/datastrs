@@ -1,7 +1,7 @@
 
 
-
-
+"""Naive implementation
+"""
 def bubble_sort(arr):
 
     for passnum in range(len(arr)-1, 0, -1):
@@ -16,18 +16,20 @@ def bubble_sort(arr):
 
     return arr
 
-test_arr_rev = [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
-print(bubble_sort(test_arr_rev))
+#test_arr_rev = [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
+
+#test_arr_rev = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+#print(bubble_sort(test_arr_rev))
 
 
-'''
+"""
     if during a pass, there are no exchanges then the list must be sorted.
     we can short-circuit the execution of bubble-sort by putting in a flag indicating such
 
-'''
+"""
 def bubble_sort_short(arr):
     exchanges = True
-
     for passnum in range(len(arr)-1, 0, -1):
         while exchanges:
             exchanges = False
@@ -39,7 +41,7 @@ def bubble_sort_short(arr):
     return arr
 
 
-test_arr_sorted = [1, 2, 3, 4, 5, 6, 7, 8]
+test_arr_sorted = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 print(bubble_sort_short(test_arr_sorted))
 
 

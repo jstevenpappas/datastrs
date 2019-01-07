@@ -1,7 +1,3 @@
-
-
-
-
 '''
 Quicksort doesnt check to see whether the input array is already sorted.
 So it will still try to sort it.
@@ -10,14 +6,12 @@ O(n log n)
 '''
 
 def quicksort(array):
-    #print('called... invoked function')
     if len(array) < 2:
-        return array            # base case 1 or 0 elements in array
+        return array     # base case 1 or 0 elements in array
     else:
-        pivot = array[0] #Recursive case
+        pivot = array[0]
         less = [i for i in array[1:] if i < pivot]
         greater = [i for i in array[1:] if i > pivot]
-        #print('about to partition')
 
         return quicksort(less) + [pivot] + quicksort(greater)
 

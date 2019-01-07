@@ -21,13 +21,13 @@ This is b/c the list is a singlylinked list and the only way to manipulate point
 unless you set the last node to a dummy
 
 '''
+
+
 def remove_node(node):
     if node is None or node.next is None:
         return False
-
     # get a handle to the next node
     next = node.next
-
     node.data = next.data
     node.next = next.next
     return True
@@ -46,7 +46,7 @@ for i in range(0, 10):
 llist.iterate()
 
 
-n = llist.get_node(5)
+n = llist.get_node(9)
 
 if n is not None:
     print(n.data)

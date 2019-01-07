@@ -3,6 +3,28 @@
 
 
 
+def bin_search(list, target):
+    low = 0
+    high = len(list) - 1
+
+    while low <= high:
+
+        midpoint = (low + high) // 2
+
+        guess = list[midpoint]
+
+        if guess == target:
+            return midpoint
+
+        elif guess < target:
+            low = midpoint + 1
+
+        else:
+            high = midpoint - 1
+
+
+
+
 
 
 
@@ -32,6 +54,37 @@ def find_pivot_rotated_arr(arr):
             return ele_idx
 
 
+def get_piv(arr):
+
+    for i in range(len(arr)):
+        if i > 0 and arr[i-1] > arr[i]:
+            return i
+
+
+arr_rot = [5, 6, 7, 8, 1, 2, 3, 4]
+
+piv = get_piv(arr_rot)
+
+lsr_half = arr_rot[piv:]
+grt_half = arr_rot[:piv]
+
+
+max_lsr = lsr_half[len(lsr_half) - 1]
+min_gtr = grt_half[0]
+
+
+tar = 3
+
+if tar <= max_lsr:
+    print(bin_search(lsr_half, tar) + len(grt_half))
+
+elif tar >= min_gtr:
+    print(bin_search(grt_half, tar))
+
+
+print('BREAK')
+
+
 
 def bin_search(list, target):
     low = 0
@@ -54,8 +107,6 @@ def bin_search(list, target):
 
 
 
-#def find_element_idx_rotated_array(array target):
-
 
 
 
@@ -71,6 +122,8 @@ arr_rot = [5, 6, 7, 8, 1, 2, 3, 4]
 
 piv = find_pivot_rotated_arr(arr_rot)
 print(find_pivot_rotated_arr(arr_rot))
+
+
 
 
 # using the pivot we slice the list into 2 sorted subarrays

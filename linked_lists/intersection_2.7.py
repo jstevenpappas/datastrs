@@ -24,11 +24,9 @@ def find_tail(l1):
     return tail
 
 
-##
-#   this returns a tuple consisting of both the list-tail and length of list
-##
+# this returns a tuple consisting of both the list-tail and length of list
 def find_tail_and_sz(l1, sz):
-    if (l1.next is None):
+    if l1.next is None:
         return l1, 1
     tail, sz = find_tail_and_sz(l1.next, sz)
     sz = sz + 1

@@ -70,11 +70,11 @@ bb
 
 """
 
+
 class UniqString(object):
 
     def __init__(self):
         pass
-
 
     def is_str_uniq(self, input_string):
         is_uniq = True
@@ -129,14 +129,15 @@ class UniqString(object):
 
         return True
 
+    def is_uniq(self, string):
+        sl = len(string)
+        for i in range(sl):
+            for j in range(i+1, sl):
+                if string[i] == string[j]:
+                    return False
+        return True
 
-    def is_even_wout_division(self, x):
-        # Bit Hack #1. Check if the integer is even or odd.
-        # tests if least significant bit is odd (or 1)
-        if ((x & 1) == 0):
-            return True
-        else:
-            return False
+
 
 
 
@@ -148,6 +149,13 @@ def main():
     us = UniqString()
 
 
+
+    print(us.is_uniq(test_str_not_uniq))
+
+    print(us.is_uniq(test_str_uniq))
+
+
+'''
     print("String is {nustr} - contains uniq chars? {val}".format(nustr=test_str_not_uniq,
                                                                   val=us.is_str_uniq(test_str_not_uniq)))
 
@@ -174,13 +182,6 @@ def main():
                                                                                              val=us.is_str_uniq_bit(
                                                                                                  test_str_uniq)))
 
-    num_even = 8
-    num_odd = 9
-    print('is {num} even?: {val}'.format(num=num_even, val=us.is_even_wout_division(num_even)))
-
-    print('is {num} even?: {val}'.format(num=num_odd, val=us.is_even_wout_division(num_odd)))
-
-
-
+'''
 if __name__ == "__main__":
     main()

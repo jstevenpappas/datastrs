@@ -1,7 +1,11 @@
+"""
 
+
+"""
 
 
 def radix_sort(array, base=10):
+    #
     def list_to_buckets(array, base, iteration):
         print('arr={arr} base={base} iteration={it}'.format(arr=array, base=base, it=iteration))
         buckets = [[] for x in range(base)]
@@ -12,7 +16,7 @@ def radix_sort(array, base=10):
             buckets[digit].append(number)
             print(buckets)
         return buckets
-
+    #
     def buckets_to_list(buckets):
         print('buckets_to_list()')
         numbers = []
@@ -22,11 +26,10 @@ def radix_sort(array, base=10):
             for number in bucket:
                 numbers.append(number)
         return numbers
-
+    # get the max value - i.e., one w/ most digits
     maxval = max(array)
-
-    it = 0
     # Iterate, sorting the array by each base-digit
+    it = 0
     while base ** it <= maxval:
         array = buckets_to_list(list_to_buckets(array, base, it))
         it += 1

@@ -1,5 +1,3 @@
-
-
 '''
 
     Selection Sort
@@ -7,6 +5,30 @@
 
 
 '''
+
+
+
+def select_sort(arr):
+
+    for fill_slot in range(len(arr)-1, 0, -1):
+
+        position_max = 0
+
+        for location in range(1, fill_slot + 1):
+
+            if arr[position_max] < arr[location]:
+                position_max = location
+
+
+        print('fillslot={fs} position_max={pm}'.format(fs=fill_slot, pm=position_max))
+        arr[fill_slot], arr[position_max] = arr[position_max], arr[fill_slot]
+        print('new array: {new_arr}'.format(new_arr=arr))
+
+    return arr
+
+
+
+
 def selection_sort(arr):
 
     for fill_slot in range(len(arr)-1, 0, -1):
@@ -30,26 +52,10 @@ def selection_sort(arr):
 
 
 
+#input = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
+input = [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
 
-test_arr_rev = [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
-
-print('arr = ', test_arr_rev)
-print(selection_sort(test_arr_rev))
-
-print('')
-
-#test_arr_sorted = [1, 2, 3, 4, 5, 6, 7, 8]
-test_arr_sorted = [5, 6, 7, 8, 1, 2, 3, 4]
-
-#print('arr = ', test_arr_sorted)
-#print(test_arr_sorted)
-
-
-#tst_arr = [4, 3, 2, 1]
-
-tst_arr = [2, 1, 4, 3]
-
-print('arr = ', tst_arr)
-print(selection_sort(tst_arr))
-
+print('Original Array= ', input)
+#print(selection_sort(input))
+print(select_sort(input))

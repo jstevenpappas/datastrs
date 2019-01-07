@@ -55,23 +55,17 @@ def partlong(node, part_val):
 
 
 # using existing LinkedList impl
-def partition(llist, part_val):
-
+def partition(linked_list, part_val):
     before = LinkedList()
     after = LinkedList()
-
-    n = llist.head
-
+    n = linked_list.head
     while n is not None:
         if n.data < part_val:
             before.append(n.data)
         else:
             after.append(n.data)
-
         n = n.next
-
     before.tail.next = after.head
-
     return before
 
 

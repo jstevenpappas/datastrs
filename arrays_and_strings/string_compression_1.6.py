@@ -12,6 +12,7 @@
 
 """
 
+
 def compress_string(string):
     char_cnt = 0
     comp_str = ''
@@ -20,7 +21,7 @@ def compress_string(string):
         char_cnt += 1
 
         # capture the char and its freq if we are beyond max index of string or consec chars don't match
-        if idx +1 >= len(string) or string[idx] != string[idx+1]:
+        if idx + 1 >= len(string) or string[idx] != string[idx+1]:
             comp_str += '{c}{f}'.format(c=string[idx], f=char_cnt)
             char_cnt = 0
 
@@ -28,6 +29,8 @@ def compress_string(string):
         return string
     else:
         return comp_str
+
+
 
 
 compressible = 'aabcccccaaa'

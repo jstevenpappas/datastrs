@@ -63,3 +63,32 @@ root = create_min_bst(sorted_arr, 0, len(sorted_arr)-1)
 
 print(check_height(root))
 
+
+
+# first create a function to get a trees height
+def get_height(root):
+    if root is None:
+        return -1
+    return max(get_height(root.left), get_height(root.right)) + 1
+
+# create a function to see if they differ by more than 1
+
+
+def is_bst_subtrees_balanced(root):
+    if root is None:
+        return True
+    height_diff = get_height(root.right) - get_height(root.left)
+    if abs(height_diff) > 1:
+        return False
+    else:
+        return is_bst_subtrees_balanced(root.right) and is_bst_subtrees_balanced(root.left)
+
+print(get_height(root))
+
+print(is_bst_subtrees_balanced(root))
+
+
+
+
+
+

@@ -9,18 +9,16 @@ Hints:
 Try using 2 ptrs where the 2nd searches ahead of the first
 
 """
-class Node(object):
 
+from collections import defaultdict
+
+class Node(object):
     def __init__(self, data):
         self.data = data
         self.next = None
 
-    def get_data(self):
-        return self.data
-
 
 class LinkedList(object):
-
     def __init__(self):
         self.head = None
         self.tail = None
@@ -49,49 +47,42 @@ class LinkedList(object):
     def remove_node(self, data):
 
         if self.head.data == data:
+            print('REMOVING HEAD')
             self.head = self.head.next
             return self.head
 
         n = self.head
         while n.next is not None:
+            print('SEARCHING FOR NODE TO REMOVE')
             if n.next.data == data:
                 n.next = n.next.next
                 return self.head
             n = n.next
 
     def remove_dupes(self):
-        data_hash = dict()
-
+        data_hash = defaultdict(int)
         n = self.head
-
-        # add the first val to table
+        # iterate over the Linked List
         while n is not None:
-            if n.data in data_hash.keys():
+            # increment the counter for this node
+            data_hash[n.data] += 1
+            # see if the node is in the dict
+            if data_hash[n.data] > 1:
+                # if so, call remove on it
                 self.remove_node(n.data)
-
-            # otherwise just put the data the table for further inspection
-            data_hash.update({n.data: n.data})
             # iterate to next node
             n = n.next
 
-        print(data_hash)
-
-
     def remove_dupes_no_ds(self):
-
         current = self.head
-
         while current is not None:
-
             runner = current
-
             while runner.next is not None:
-
+                print('using runner to find dupes and eliminate them')
                 if runner.next.data == current.data:
+                    print('found a dupe to remove: dupe = {dupe}'.format(dupe=current.data))
                     self.remove_node(current.data)
-
                 runner = runner.next
-
             current = current.next
 
 
@@ -99,13 +90,15 @@ class LinkedList(object):
 def main():
 
     ll = LinkedList()
-    for i in range(0, 5):
+    for i in range(0, 10):
         ll.append(i)
 
     ll.append(4)
     ll.append(4)
 
     ll.iterate()
+
+    elem = 9
 
     print('')
 

@@ -32,37 +32,41 @@ class MinStack(MyStack):
 
     def minval(self):
         if self.minstack.is_empty():
-            return sys.maxint  # empty so return biggest num possible
+            return sys.maxsize  # empty so return biggest num possible
         else:
             return self.minstack.peek()
 
 
 ms = MinStack()
+
+ms.push(1)
 ms.push(5)
-ms.push(2)
 print('')
 print('current minval(): {mv}'.format(mv=ms.minval()))
 ms.push(99)
 ms.push(4)
 ms.push(6)
+print('current minval(): {mv}'.format(mv=ms.minval()))
+ms.push(2)
 ms.push(3)
-ms.push(1)
 
-while not ms.minstack.is_empty():
-    print(ms.minstack.pop())
 
-'''
-print('current minval(): {mv}'.format(mv=ms.minval()))
-print('popping the following: {pop}'.format(pop=ms.pop()))
+while not ms.is_empty():
+    popped_val = ms.pop()
+    print('popped val = ', popped_val)
+    print('mi val = ', ms.minval())
 
-print('current minval(): {mv}'.format(mv=ms.minval()))
-print('popping the following: {pop}'.format(pop=ms.pop()))
 
 print('current minval(): {mv}'.format(mv=ms.minval()))
 print('popping the following: {pop}'.format(pop=ms.pop()))
 
 print('current minval(): {mv}'.format(mv=ms.minval()))
 print('popping the following: {pop}'.format(pop=ms.pop()))
+
+print('current minval(): {mv}'.format(mv=ms.minval()))
+print('popping the following: {pop}'.format(pop=ms.pop()))
+
+print('current minval(): {mv}'.format(mv=ms.minval()))
+print('popping the following: {pop}'.format(pop=ms.pop()))
 print('current minval(): {mv}'.format(mv=ms.minval()))
 
-'''

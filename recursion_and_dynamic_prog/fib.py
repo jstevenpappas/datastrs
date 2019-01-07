@@ -1,5 +1,14 @@
 
 
+def fib_r(n):
+    if n <= 1:
+        return n
+    else:
+        return fib_r(n-1) + fib_r(n-2)
+nn=7
+#print('fib series for {s}: {sum}'.format(s=nn, sum=fib_r(nn)))
+
+
 
 
 
@@ -16,20 +25,16 @@ def fib_memo(n):
     memo = [0 for i in range(n + 1)]
     return fibonacci_td(n, memo)
 
-
 def fibonacci_td(n, memo):
-
     if n == 1 or n == 0:
         return n
-
     if memo[n] == 0:
         memo[n] = fibonacci_td(n-1, memo) + fibonacci_td(n-2, memo)
-
     return memo[n]
 
-#print(fib(40))
-
-print(fib_memo(100))
+n=998
+#print(fib(n))
+print(fib_memo(n))
 
 
 
@@ -51,4 +56,6 @@ def fib_bu(n):
 
     return num + num_following
 
-print(fib_bu(1000))
+n = 100000
+#print('bottom up programming', fib_bu(n))
+#print(fib_bu(n))

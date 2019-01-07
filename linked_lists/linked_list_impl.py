@@ -30,27 +30,27 @@ class LinkedList(object):
             self.tail.next = new_node # add to node to chain
             self.tail = new_node      # set new value for tail
 
-
     def iterate(self):
-
         _head = self.head
-
         while _head is not None:
             print('Curr node val: {data}'.format(data=_head.data))
             _head = _head.next
 
-
     def remove_node(self, data):
-
+        # if it's the head node, just set head to head.next and return
         if self.head.data == data:
             self.head = self.head.next
             return self.head
-
+        # otherwise, iterate
         n = self.head
+        # while the next node is not Null...
         while n.next is not None:
+            # test to see if it is our target
             if n.next.data == data:
+                # if so, set it to its next Node and return
                 n.next = n.next.next
                 return self.head
+            # otherwise, keep iterating
             n = n.next
 
 

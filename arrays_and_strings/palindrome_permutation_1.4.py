@@ -23,6 +23,37 @@ from collections import defaultdict
 
 
 """
+
+
+def is_perm_of_palindrome(input):
+    # format the input
+    input = ''.join(input.split())
+    # get input string len to see if it is odd or even
+    input_len = len(input)
+    # build a dict of chars with their frequency/counts in the input string
+    char_freq_dict = defaultdict(int)
+    for char in input:
+        char_freq_dict[char] += 1
+    #
+    # even case
+    if input_len % 2 == 0:
+        for char, freq in char_freq_dict.items():
+            if freq % 2 != 0:
+                return False
+    else:
+        # odd case
+        # strings w/ odd len must have exactly one char with odd freq
+        # so iterate over the frequencies in the dict and ensure there is
+        # only 1 where the count is exactly 1!
+        chars_odd_freq = []
+        for char, freq in char_freq_dict.items():
+            if freq % 2 != 0:
+                chars_odd_freq.append(char)
+        if len(chars_odd_freq) != 1:
+            return False
+    return True
+
+
 class PalindromePermutation(object):
 
     def __init__(self):
@@ -39,14 +70,13 @@ class PalindromePermutation(object):
     def is_perm_of_palindrome(self, input):
         # format the input
         input = ''.join(input.split())
-        # get input string len
+        # get input string len to see if it is odd or even
         input_len = len(input)
-
         # build a dict of chars with their frequency/counts in the input string
         char_freq_dict = defaultdict(int)
         for char in input:
             char_freq_dict[char] += 1
-
+        #
         # even case
         if input_len % 2 == 0:
             for char, freq in char_freq_dict.items():
@@ -55,13 +85,14 @@ class PalindromePermutation(object):
         else:
             # odd case
             # strings w/ odd len must have exactly one char with odd freq
+            # so iterate over the frequencies in the dict and ensure there is
+            # only 1 where the count is exactly 1!
             chars_odd_freq = []
             for char, freq in char_freq_dict.items():
                 if freq % 2 != 0:
                     chars_odd_freq.append(char)
             if len(chars_odd_freq) != 1:
                 return False
-
         return True
 
 def main():
